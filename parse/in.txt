@@ -1,0 +1,124 @@
+const int MAX = 15;
+const char ADD = '+', MINUS = '-', TIMES = '*', DIVIDE = '/';
+int array[5];
+int globalNum;
+char globalCh;
+int Fibonacci(int n){
+    if(n <= -1)   return (-1);
+    if(n == 0){
+        return (0);
+    }
+    if (n > MAX) {
+        return (-1);
+    }
+    if(n == 1){
+        return (1);
+    }
+    else {
+        return (Fibonacci(n-1) + Fibonacci(n-2));
+    }
+}
+void printString(){
+    printf(" !#$&()+-*/,.?abcdefgABCDEFG|[-^]{}1234567890");
+    printf("");
+}
+void print(int num){
+    printf(" ",num);
+}
+void printArray(){
+    int i;
+    array[0] = 1;
+    array[1] = 2;
+    array[2] = 3;
+    array[3] = 4;
+    array[4] = 5;
+    for(i = 4; i >= 0; i = i - 1){
+        print(array[i]);
+    }
+    return ;
+}
+int operation(int flag){
+    int num_1, num_2, result;
+    scanf(num_1, num_2);
+    switch (flag) {
+        case 0:{
+            result = num_1 + num_2;
+            printf(" ", ADD);
+            return (result);
+            }
+        case 1:{
+            result = num_1 - num_2;
+            printf(" ", MINUS);
+            return (result);
+            }
+        case 2:{
+            result = num_1 * num_2;
+            printf(" ",TIMES);
+            return (result);
+            }
+        case 3:{
+            if(num_2 != 0){
+                result = num_1 / num_2;
+                printf(" ",DIVIDE);
+                return (result);
+            }
+            else{
+                 printf("can't divide zero!");
+                 return (-1);
+            }
+            }
+        default:{
+            printf("can't recognise the input!");
+            return (-1);
+            }
+    }
+}
+int add(int num_1, int num_2){
+    return (num_1 + num_2);
+}
+void printNums(int num_1, int num_2, int num_3, int num_4){
+    print(num_1);
+    print(num_2);
+    print(num_3);
+    print(num_4);
+}
+void testExpr(){
+    int a, b, c, expr1, expr2, expr3, expr4, array[10];
+    char ch_1, ch_2;
+    a = 1;
+    b = 2;
+    c = 3;
+    array[0] = c;
+    array[3] = 10;
+    expr1 = a + b + c;
+    expr2 = -a * array[0];
+    expr3 = +b * c + a;
+    expr4 = -+1 + a * b * c;
+    printNums(expr1, expr2, expr3, expr4);
+    expr1 = a + b + 2;
+    expr2 = -a * add(b, c);
+    expr3 = +b * (c + a);
+    expr4 = a + a * array[add(a, b)] * 3;
+    printNums(expr1, expr2, expr3, expr4);
+    ch_1 = 'b';
+    a = ch_1 + 1;
+    ch_2 = ch_1 + 1;
+    print(a);
+    printf(" ", ch_2);
+    ch_1 = '_';
+    printf(" ", ch_1);
+    ;
+}
+void main(){
+    int num, flag, result;
+    globalNum = 1;
+    globalCh = 'c';
+    scanf(num);
+    print(Fibonacci(num));
+    printString();   
+    printArray();     
+    scanf(flag);
+    result = operation(flag);   
+    print(result);
+    testExpr();  
+}

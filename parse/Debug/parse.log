@@ -1,0 +1,6 @@
+﻿  optimize.cpp
+d:\mycpro\parse\parse\optimize.cpp(65): warning C4018: “<”: 有符号/无符号不匹配
+d:\mycpro\parse\parse\optimize.cpp(808): warning C4018: “<”: 有符号/无符号不匹配
+  main.cpp
+  正在生成代码...
+  parse.vcxproj -> D:\MyCPro\parse\Debug\parse.exe
